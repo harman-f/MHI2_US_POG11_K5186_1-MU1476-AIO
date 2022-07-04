@@ -1016,6 +1016,157 @@ keyValue
 
 ###########################################################################################
 #
+# Main -> M.I.B. -> NETWORK CONFIGURATION
+#
+###########################################################################################
+screen Network_configuration =>M.I.B_AIO<=
+
+###########################################################################################
+#
+# Main -> M.I.B. -> NETWORK CONFIGURATION -> WLAN
+#
+###########################################################################################
+screen  WLAN_activation Network_configuration
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Enabling WLAN coding and adaptions on MHI2 unit"
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	" "
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Switch WLAN on, activate client mode"
+	poll    0
+
+script
+	value   sys 1 0x0100 "/net/mmx/fs/sda0/esd/scripts/wlan.sh"
+    label   "WLAN coding activated"
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Activate hotspot - ONLY usable on units with SIM card and data plan"
+	poll    0
+
+script
+	value   sys 1 0x0100 "/net/mmx/fs/sda0/esd/scripts/hotspot.sh"
+    label   "WLAN hotspot coding activated"
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"___________________________________________________________________________"
+	poll    0
+
+###########################################################################################
+#
+# Main -> M.I.B. -> NETWORK CONFIGURATION -> WLAN STATUS
+#
+###########################################################################################
+screen wlan_status Network_configuration
+
+bitvalue
+    value   per 0 4101
+	range   24.3 24.3
+	label   "WLAN long coding enabled"
+	entry 	"OFF" 0
+	entry 	"ON" 1
+
+#replace with bitselect
+
+keyValue
+    value   int per 28442848 514
+    label   "Adaptions WLAN off/on  1 = ON | 0 = OFF"
+    poll    0
+
+choice
+    value   per 0x01b800e1 41
+    label   "WLAN activation (also with ignition off)"
+    poll    1000
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"___________________________________________________________________________"
+	poll    0
+
+keyValue
+    value   String per 0x01b800e1 39
+    label   "Current password"
+    poll    1000
+
+button
+    value   per 0x01b800e1 38 1
+    label   "Set simple password (HARMAN+BECKER)"
+    poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"___________________________________________________________________________"
+	poll    0
+
+# Channel configuration ##########################################
+slider
+    value   per 0x3F57B91D 3
+    label   "Channel (0 = auto)"
+    limits  absolute 0 11
+    poll    0
+
+# TX power configuration ##########################################
+slider
+    value   per 0x3F57B91D 4
+    label   "TX power level [dBm]"
+    limits  absolute 0 20
+    poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+    label	"___________________________________________________________________________"
+	poll    0
+	
+###########################################################################################
+#
+# Main -> M.I.B. -> NETWORK CONFIGURATION -> WLAN Information
+#
+###########################################################################################
+screen wlan_information Network_configuration
+
+# WLAN configuration #############################################
+table # Current WLAN settings table 1
+    content         per 0x01b800e1 40
+    label           "WLAN information"
+    poll            2000
+    maxrows         1
+    orientation     horizontal
+    columns 		( "SSID" String 250 ) ( "MAC" String 200 ) ( "IP" String 150 )
+
+table # Current WLAN settings table 2
+    content         per 0x01b800e1 42
+    label           "WLAN parameters"
+    poll            2000
+    maxrows         1
+    orientation     horizontal
+    columns 		( "Channel" int 80 ) ( "SSID broadcast" int 140 ) ( "NetMode" int 90 ) ( "EncryptMode" int 130 ) ( "SecurityMode" int 140 )
+
+# WLAN devices ###################################################
+table # Current connection table
+    content         per 0x01b800e1 43
+    label           "Connected devices table"
+    poll            2000
+    maxrows         3
+    orientation     horizontal
+    columns 		( "MAC" String 210 ) ( "IPAddr" String 180 ) ( "Name" String 300 )
+
+keyValue
+    value   String sys 0x00000000 0
+    label	"___________________________________________________________________________"
+	poll    0
+	
+
+###########################################################################################
+#
 # Main -> M.I.B. -> Multimedia System -> Media Import Ripping Settings
 #
 ###########################################################################################
