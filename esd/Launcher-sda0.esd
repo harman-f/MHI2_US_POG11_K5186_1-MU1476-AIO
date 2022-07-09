@@ -822,6 +822,70 @@ keyValue
 
 ###########################################################################################
 #
+# Main -> M.I.B. -> FecContainer.fec
+#
+###########################################################################################
+screen FecContainer.fec =>M.I.B_AIO<=
+
+###########################################################################################
+#
+# Main -> M.I.B. -> FecContainer.fec -> addFec
+#
+###########################################################################################
+screen edit_FecContainer.fec =>M.I.B_AIO<=
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Info: Part of AIO Patch function"
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Edit FecContainer.fec based on addFEC.txt in patch folder"
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label	" "
+	poll    0
+
+script
+	value   sys 1 0x0100 "/net/mmx/fs/sda0/esd/scripts/fecel.sh"
+	label   "Add new Fecs to FecContainer.fec"
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"___________________________________________________________________________"
+	poll    0
+
+###########################################################################################
+#
+# Main -> M.I.B. -> FecContainer.fec -> FEC list
+#
+###########################################################################################
+screen check_fec_list FecContainer.fec
+
+keyValue
+    value   String sys 0x00000000 0
+	label 	"Outputs available FECs in FecContainer"
+	poll    0
+
+keyValue
+    value   String sys 0x00000000 0
+	label	" "
+	poll    0
+
+script
+	value   sys 1 0x0100 "/net/mmx/fs/sda0/esd/scripts/feclist.sh"
+	label   "List FECs from FecContainer.fec"
+
+keyValue
+    value   String sys 0x00000000 0
+	label	"___________________________________________________________________________"
+	poll    0
+
+###########################################################################################
+#
 # Main -> M.I.B. -> NAVIGATION
 #
 ###########################################################################################
@@ -1165,7 +1229,6 @@ keyValue
 	poll    0
 	
 
-
 ###########################################################################################
 #
 # Main -> M.I.B. -> Multimedia System
@@ -1252,7 +1315,6 @@ keyValue
     value   String sys 0x00000000 0
 	label	"___________________________________________________________________________"
 	poll    0
-
 
 ###########################################################################################
 #
