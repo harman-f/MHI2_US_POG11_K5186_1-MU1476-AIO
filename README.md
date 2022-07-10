@@ -5,7 +5,7 @@
 Custom all-in-one FW update based on [metainfo2 exploit](/doc/metainfo2txt-exploit-VcFdFs4rds).<br />
 :warning: Read all before updating.<br />
 <br />
-**Last update 03.07.2022**<br />
+**Last update 10.07.2022**<br />
 
 # Features
 
@@ -93,6 +93,7 @@ Copy files to the root of a FAT32 SD card and install via Software Update in the
 
 [![image](http://img.youtube.com/vi/B5HERxITtMY/0.jpg)](https://www.youtube.com/watch?v=B5HERxITtMY)
 
+![image](https://user-images.githubusercontent.com/98130152/178163930-4bae2ff0-357f-4928-98ab-f2b33e3e83b7.png)
 
 # Retrofit Navigation display in Cluster
 
