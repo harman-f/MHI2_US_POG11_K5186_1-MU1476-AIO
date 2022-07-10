@@ -11,13 +11,16 @@ echo "[finalScriptSequence] Cool stuff found and executing..."
 export GEM=1
 export SWDLAUTORUN=1 # allows Swdlautorun.txt in root of SD during SWDL process
 
-echo "Runnung basic backup --------------------"
+echo "Running basic backup --------------------"
 ${2}/apps/backup -b
-echo "Runnung AIO generic script --------------"
+echo "Running AIO generic script --------------"
 ${2}/apps/aio_generic -all
 #echo "Runnung AIO special script -------------"
 #${2}/apps/aio_special -all
-echo "Runnung POG11 button patch script --------------"
+echo "Running addfec --------------"
+${2}/apps/addfec -a
+${2}/apps/addfec -l
+echo "Running POG11 button patch script --------------"
 ${2}/apps/addimage -pog11on -noboot
 
 echo "[finalScriptSequence] Cool stuff DONE"

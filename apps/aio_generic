@@ -69,7 +69,6 @@ on -f mmx $PC i:28442848:514 1 2>> $LOG
 on -f mmx $PC b:0:3221356628:8.2 1 2>> $LOG
 echo "-- WLAN activated" | $TEE -a $LOG
 
-#Region US = 2
 #byte_3_Country_Navigation
 on -f mmx $PC i:0:0x50180CFF 2 $REGION 2>> $LOG
 #SDS Region Flag
@@ -89,128 +88,6 @@ sleep 2
 on -f mmx rm -rf /eso/hmi/engdefs/z_Launcher-sda0.esd 2>> $LOG
 on -f mmx ln -s /net/mmx/fs/sda0/esd/Launcher-sda0.esd /eso/hmi/engdefs/z_Launcher-sda0.esd 2>> $LOG
 echo "-- M.I.B link to GEM installed" | $TEE -a $LOG
-
-
-#Build custom FecContainer.fec
-echo "-- Start building custom FecContainer.fec" | $TEE -a $LOG
-GetFecContainer () {
-Pointer=8
-FECCOUNT=0
-FECCOUNTDEC=0
-echo -n > /tmp/AddedFecs.tmp
-echo -n > /tmp/FecContainer.tmp
-echo -n > /tmp/InstalledFecs.tmp
-if [[ -n $($DD if=/HBpersistence/FEC/FecContainer.fec bs=1 count=1) ]]; then
-$XXD -u -p -c 99999 /HBpersistence/FEC/FecContainer.fec > /tmp/FecContainer.tmp
-elif [[ -f /mnt/efs-system/backup/FEC/FecContainer.fec ]]; then
-$XXD -u -p -c 99999 /mnt/efs-system/backup/FEC/FecContainer.fec > /tmp/FecContainer.tmp
-fi
-FecCheck=$($DD if=/tmp/FecContainer.tmp skip=8 bs=2 count=2)
-if [[ $FecCheck -ne 1102 ]] && [[ $FecCheck -ne 1107 ]]; then
-CreateVCRNVIN
-else
-VCRNVIN=$($DD if=/tmp/FecContainer.tmp skip=15 bs=2 count=22)
-FECCOUNTHEX=$($DD if=/tmp/FecContainer.tmp bs=2 count=1)
-FECCOUNTDEC=$((0x$FECCOUNTHEX))
-fi
-while [[ $FECCOUNTDEC -gt 0 ]]; do
-ParseFecContainer
-done
-CreateNewFecs
-}
-
-ParseFecContainer () {
-if [[ $($DD if=/tmp/FecContainer.tmp skip=$Pointer bs=2 count=2) = "1102" ]]; then
-ParseSingleFec
-elif [[ $($DD if=/tmp/FecContainer.tmp skip=$Pointer bs=2 count=2) = "1107" ]]; then
-ParseMultiFec
-fi
-}
-
-ParseSingleFec () {
-((Pointer=Pointer+2))
-echo $($DD if=/tmp/FecContainer.tmp skip=$Pointer bs=2 count=4) >> /tmp/InstalledFecs.tmp
-((Pointer=Pointer+193))
-((FECCOUNTDEC--))
-}
-
-ParseMultiFec () {
-((Pointer=Pointer+34))
-FecAmountHEX=$($DD if=/tmp/FecContainer.tmp skip=$Pointer bs=2 count=1)
-FecAmountDEC=$((0x$FecAmountHEX))
-FecLength=$((FecAmountDEC*4))
-((Pointer++))
-while [[ $FecAmountDEC -gt 0 ]]; do
-echo $($DD if=/tmp/FecContainer.tmp skip=$Pointer bs=2 count=4) >> /tmp/InstalledFecs.tmp
-((Pointer=Pointer+4))
-((FecAmountDEC--))
-done
-((Pointer=Pointer+148+FecLength))
-((FECCOUNTDEC--))
-}
-
-CreateVCRNVIN () {
-if [[ -f /tmp/VIN.txt ]]; then
-VIN=$($XXD -u -p -s 5 -l 17 /tmp/VIN.txt)
-else
-VIN=2020202020202020202020202020202020
-fi
-VCRNVIN=FFFFFFFFFF$VIN
-echo -n > /tmp/FecContainer.tmp
-}
-
-CreateNewFecs () {
-while read FEC; do
-grep -iq $FEC /tmp/InstalledFecs.tmp
-FecNotPresent=$?
-if [[ $FecNotPresent -eq 1 ]] && [[ $FECCOUNT -le 255 ]]; then
-((FECCOUNT++))
-BuildFec
-fi
-done < /tmp/FecsToAdd.tmp
-FECCOUNTADD=$(echo -n "ibase=10;obase=16;$FECCOUNT" | bc)
-while [[ ${#FECCOUNTADD} -lt 2 ]]; do
-FECCOUNTADD="0"$FECCOUNTADD
-done
-echo -n $FECCOUNTADD"000000" | $XXD -r -p > /tmp/NewFecContainer.fec
-cat /tmp/AddedFecs.tmp >> /tmp/NewFecContainer.fec
-rm -f /HBpersistence/FEC/TempFecContainer.fec
-rm -f /HBpersistence/FEC/IllegalFecContainer.fec
-rm -f /HBpersistence/FEC/WithdrawnFecContainer.fec
-cp /tmp/NewFecContainer.fec /HBpersistence/FEC 2>> $LOG
-echo "-- FecContainer.fec written to unit" | $TEE -a $LOG
-}
-
-BuildFec () {
-while [ ${#VCRNVIN} -lt 44 ]; do
-VCRNVIN=$VCRNVIN"20"
-done
-Date=$(date -t)
-if [[ $Date -lt 1624912953 ]]; then
-Date=1624912953
-fi
-Epoch=$(echo -n "ibase=10;obase=16;$Date" | bc)
-echo -n "AB0000001102"$FEC"03"$VCRNVIN"00"$Epoch"000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF01000000000000000100000003000000FF000000" | $XXD -r -p >> /tmp/AddedFecs.tmp
-}
-
-#Parse addFecs.txt
-echo -n > /tmp/FecsToAdd.tmp
-$SED 's/\r//g' $VOLUME/common/tools/addFecs.txt > /tmp/addFecs.txt
-while read FEC; do
-grep -iq $FEC /tmp/FecsToAdd.tmp
-FecNotPresent=$?
-((16#$FEC)) > /dev/null 2>&1
-FecIsHex=$?
-if [[ $FecIsHex -eq 0 ]] && [[ ${#FEC} -eq 8 ]] && [[ $FecNotPresent -eq 1 ]]; then
-echo $FEC >> /tmp/FecsToAdd.tmp
-fi
-done < /tmp/addFecs.txt
-if [[ -s /tmp/FecsToAdd.tmp ]]; then
-GetFecContainer
-else
-echo "-- No valid Fecs to add found, nothing to do!" | $TEE -a $LOG
-exit 1
-fi
 
 echo "[finalScriptSequence] completed\n"  | $TEE -a $LOG
 
