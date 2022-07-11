@@ -1,50 +1,78 @@
 # MHI2_US_POG11_K5186_1 MU1476 AIO 
 
+Custom **A**ll **I**n **O**ne FW update based on latest Porsche firmware available - MHI2_US_POG11_K5186 MU1476.<br />
+Usable for all MHI2 US POG11 based MIB2 units
 
-:warning: This is already successfully tested on several units. Still, some bugs might be hidden :)<br />
-Custom all-in-one FW update based on [metainfo2 exploit](/doc/metainfo2txt-exploit-VcFdFs4rds).<br />
-:warning: Read all before updating.<br />
+ℹ️ Custom all-in-one FW update based on [metainfo2 exploit](/doc/metainfo2txt-exploit-VcFdFs4rds).<br />
+:warning: Read full artivle before using this update.<br />
 <br />
-**Last update 03.07.2022**<br />
+**Last update 10.07.2022**<br />
 
 # Features
-
-1. All in one update from any `MHI2_US_POG11` firmware directly to `MHI2_US_POG11_K5186_1`. No need to manually edit EEPROM. No need to disable or loop MOST.Automatic starting FW update after plugging in SD<br />
-2. Patched IFS-Root (FEC & CP patch) will be used during the installation.<br />
-3. FecContainer will be adjusted with missing FECs (`00030000`,`00040100`, `00050000`,`00070100`, `00070200`, `00030000`, `06310099`,`00060100`,`00060500`,`00060700`,`00060800`, `00060900`, `00060A00`) during the installation.<br />
+1. Based on latest `MHI2_US_POG11` firmware<br />
+2. BOSE Sound System update **disabled** and removed from update<br />
+3. Automatic starting FW update after plugging in SD<br />
+4. Patched IFS-Root (FEC, VCRN & Component Protection patch) will be used during the installation.<br />
+5. FecContainer.fec will be extended with missing FECs:<br />
+    * `00030000`,`00040100`, `00050000`,`00070100`, `00070200`, `00030000`, `06310099`,`00060100`,`00060500`,`00060700`,`00060800`, `00060900`, `00060A00`<br />
     * addFecs.txt in /common/tools/ can be adjusted as needed. Change add FECS with e.g. notepad.<br />
-4. CarPlay and AndroidAuto will be enabled during the installation.<br />
-5. Developer Mode with GEM (hidden Green Engineering Menu) will be enabled during the installation. No need for OBD tools like PIWIS.<br />
-6. WLAN will be enabled - required for e.g. Porsche Track Precision App<br />
-7. Navigation will be enabled on units which do not have activated it.<br />
-    1. GPS antenna might be missing and has to be retrofitted.<br />
-    2. Check with M.I.B in GEM if antenna is installed.<br />
-8. AndroidAuto button fix will be applied<br />
-9. M.I.B. - More Incredible Bash will be enabled to run from SD<br />
-10. [M.I.B. AIO version](https://github.com/Mr-MIBonk/M.I.B._More-Incredible-Bash) - with reduced functions - will be available directly from FW SD card
-    * SVM fix, Backup functions, some basic coding checks<br />
-11. BOSE Sound System update disabled<br />
+6. CarPlay and AndroidAuto will be enabled during the installation<br />
+7. Developer Mode with GEM (hidden Green Engineering Menu) will be enabled during the installation<br />
+    *No need for OBD tools like PIWIS to enable it.<br />
+9. WLAN will be enabled - required for e.g. [Porsche Track Precision App](https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO/edit/main/README.md#track-precision-app)<br />
+10. Navigation will be enabled on units which do not have it activated from factory<br />
+    * All MHI2 based units - like PCM 4 - are capable to run NAvigation!
+    * GPS antenna might be missing and has to be retrofitted<br />
+    * Check with M.I.B in GEM if antenna is installed<br />
+11. AndroidAuto button fix will be applied<br />
+12. M.I.B. - More Incredible Bash will be enabled to run from SD<br />
+13. [M.I.B. AIO version](https://github.com/Mr-MIBonk/M.I.B._More-Incredible-Bash) - with AIO tailored functions - will be available directly from AIO SD card
+    * SVM fix, backup/restore functions, some basic coding checks and more<br />
+14. Basic system backup will be run during installation process, before any changes to unit are applied<br />
+15. Full LOG of installation process is stored on SD card folder /backup/logs/<br />
 
 ## Requirements
 
-* Porsche US G11 with MMI MIB2 system (any `MHI2_US_POG_XXXXX`)
-  *`MHI2_US_POG11_P2138*,MHI2_US_POG11_P2145*,MHI2_US_POG11_P3276*,MHI2_US_POG11_P3290*,MHI2_US_POG11_P3300*,MHI2_US_POG11_K3300*,MHI2_US_POG11_P4151*,MHI2_US_POG11_P4173*,MHI2_US_POG11_K4186*,MHI2_US_POG11_P4255*,MHI2_US_POG11_P5004*,MHI2_US_POG11_P5039*,MHI2_US_POG11_P5103*,MHI2_US_POG11_P5109*,MHI2_US_POG11_K5109*,MHI2_US_POG11_P5127*,MHI2_US_POG11_K5127*,MHI2_US_POG11_P5150*,MHI2_US_POG11_P5159*,MHI2_US_POG11_K5159*,MHI2_US_POG11_P5177*,MHI2_US_POG11_K5177*,MHI2_US_POG11_K5184*,MHI2_US_POG11_K5186*`
-* Quality SD card, `8GB` capacity or more ([how to check SD card](/doc/sd-card-testing-Gxi8EpfXTg)),
-* Update package (download: [https://mibsolution.one/#/1/9/MHI2 - HARMAN/Firmware/Porsche/US](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US)).
+* Porsche US POG11 with PCM4/MIB2 system (any `MHI2_US_POG11_XXXXX`)
+* `MHI2_US_POG11_P2138*,MHI2_US_POG11_P2145*,MHI2_US_POG11_P3276*,MHI2_US_POG11_P3290*,MHI2_US_POG11_P3300*,MHI2_US_POG11_K3300*,MHI2_US_POG11_P4151*,MHI2_US_POG11_P4173*,MHI2_US_POG11_K4186*,MHI2_US_POG11_P4255*,MHI2_US_POG11_P5004*,MHI2_US_POG11_P5039*,MHI2_US_POG11_P5103*,MHI2_US_POG11_P5109*,MHI2_US_POG11_K5109*,MHI2_US_POG11_P5127*,MHI2_US_POG11_K5127*,MHI2_US_POG11_P5150*,MHI2_US_POG11_P5159*,MHI2_US_POG11_K5159*,MHI2_US_POG11_P5177*,MHI2_US_POG11_K5177*,MHI2_US_POG11_K5184*,MHI2_US_POG11_K5186*`
+* Quality SD card, `8GB` capacity or more, **FAT32** formatted
 
 ## How to install
 
-1. Format SD card with `FAT32` file system.<br />
-2. Extract the content of the All-In-One package to the root directory of the FAT32 formatted SD card.<br />
-3. Turn the ignition on (accessory), and wait for the PCM system to boot up. Connecting an external charger is recommended.<br />
-:warning: Make sure that the car key will not leave the vehicle during the firmware update procedure (learn more about [Kessy and updates](/doc/kessy-updates-JeN8RUuHyK)).<br />
-4. OPTIONAL: Can prevent some issues. Restore factory settings by going to `MENU` → `Setup MMI` → `Factory Settings` → `Select all entries` → `Restore factory settings`.<br />
-5. Wait for about 20 seconds for the factory settings to be done.<br />
-6. Place the FAT32 SD card with files in `SD 1` port.<br />
-7. **Firmware update will start automatically within 60 seconds. Do not do anything.** If nothing happens within 2 minutes, double check SD Card for FAT32 formatting and proper file structure.<br />
-8. Wait for the update to be installed. It will take some time, the system will reboot a few times during the firmware update procedure. The screen can stay off or stuck on the Porsche logo for several seconds. Be patient and wait. Depending on the start FW the updates typically take between 10 - 40 minutes (this is why an external charger can be handy).<br />
+ℹ️ Check Youtube videos linked below for a video overview of the installation process.<br />
+Videos might be out of date in parts, as the AIO solution is developed further.<br />
+Always read the text below carfully!<br />
 
-The whole update process can be found in these YT videos:
+1. Format SD card with **FAT32** file system.<br />
+2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US)).
+   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one
+3. Extract the content of the AIO package to the root directory of the FAT32 formatted SD card.<br />
+4. Power PCM 4 system up by pressing right knob<br />
+   * Connect external charger to car<br />
+   * Power failure during FW update will brick your unit<br />
+   * Turn all not required power consumers off<br />
+   :warning: In case your car has kessy make sure that the car key will not leave the vehicle during the firmware update procedure.<br />
+5. Insert the AIO SD card in `SD 1` port.<br />
+6. **Firmware update will start automatically within 60 seconds. Do not do anything.**
+   * If nothing happens within 2 minutes, double check SD Card for FAT32 formatting and proper file structure.<br />
+7. Wait for the update to be installed - **be patient**.<br />
+   * System will reboot a few times during the firmware update procedure. The screen can stay off or stuck on the Porsche logo for several seconds.<br />
+   * Depending on the start firmware version the update will take between 10 - 40 minutes (this is why an external charger is required.<br />
+8. The installation will finish with a 'Summary of devices' screen of all installed packages and their installation status.<br />
+   * Updates packages have to show Y(es)<br />
+   * Packages will be different based on original FW version<br />
+   * Exit this screen by pressing 'Continue' on screen<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178356101-c8008fb4-85e1-4750-b1c1-91a7fdfe2e2f.png)<br />
+9. Last screen will be 'Start backup documentation'<br />
+   * Exit this screem by pressing 'Cancel backup documentation' on screen<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178356543-8b00f7b8-f5cd-4203-9b03-5eb8331a6b50.png)<br />
+   * This is as it should be<br />
+   * Unit will reboot one more time<br />
+10. Unit boots up into normal user interface<br />
+11. Enter GEM and run [SVM fix in M.I.B](https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO/edit/main/README.md#svm-fix)<br />
+   * This will run for a few minutes and the unit will reboot one last time<br />
+12. AIO FW update is completly done<br />
+   * Have fun and explore the new functions!<br />
 
 ### Installation on 911
 [![image](http://img.youtube.com/vi/QPRqR47_9qo/0.jpg)](https://www.youtube.com/watch?v=QPRqR47_9qo)
@@ -54,78 +82,97 @@ The whole update process can be found in these YT videos:
 
 ## Bose Sound System update
 
-**Standard install is not inclusive of BOSE updates.**<br />
+**Standard install has BOSE updates REMOVED.**<br />
 
-By default, this procedure will not update the Bose amplifier firmware. `metainfo2.txt` was prepared to skip this component, the updated amplifier will require parameterization which must be completed with PIWIS or at the dealer.<br />
+By default, the AIO FW will not update the Bose amplifier firmware. `metainfo2.txt` was prepared to skip this component.<br />
+Updating will require parameterization of the amplifier, which must be completed with PIWIS or at the dealer.<br />
 
 :warning: Without the parameterization you will have no sound.<br />
 
-If you wish to update Bose you can use different `metainfo2.txt` to do it.
+If you wish to update Bose you can use different `metainfo2.txt`, which is included into the IO package.
 
 1. Remove `metainfo2.txt`<br />
 2. Rename `metainfo2-Bose.txt` to `metainfo2.txt`<br />
 3. Run the update<br />
-4. Perform parametrization afterwards<br />
+4. Perform parametrization<br />
 
-## SVM
+## SVM fix
 
 Use built-in M.I.B AIO version to run SVM fix.<br />
-
 Enter GEM (CAR+TUNER buttons on home screen) and select function.<br />
+![image](https://user-images.githubusercontent.com/98130152/178356676-128374db-d50b-4f4f-981b-377d0ef83e5d.png)<br />
 
 # Map updates to the latest US maps:<br />
 
+1. **[Download latest maps here](https://mibsolution.one/#/1/15/MHI2(Q))**<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178357825-0470613c-2826-42f6-909b-af264189f39e.png)<br />
+   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one<br />
+2. Copy files to the root of a FAT32 32GB SD card<br />
+3. Install via Software Update on your unit<br />
 
-:::info
-Use [download manager](/doc/mibsolutionone-fix-download-speed-sxBSYsX5Qq) to speed up downloading from mibsolution.one
+# Retrofit GPS Antenna 
 
-:::
+Use M.I.B to check if your car already has a GPS antenan built in.<br />
+![image](https://user-images.githubusercontent.com/98130152/178350343-4a692a0c-06b4-4141-9705-950873dc6d68.png)<br />
 
-Get latest maps:
+If NO antenna is installed you have several options to retrofit one.<br />
+You can place the antenna directly behind your PCM screen. <br />
 
-<https://mibsolution.one/#/1/15/MHI2(Q)>
+## GPS Hardware
 
-Copy files to the root of a FAT32 SD card and install via Software Update in the PCM.
+### Original Porsche antenna
+1. Antenna - Part number: 7PP035504A - 30$
+   * ![image](https://user-images.githubusercontent.com/98130152/178358449-a20a2bb1-b9c8-45c7-8369-82937ad7138d.png)
+   * [e.g. buy here](https://partecha.com/autoparts-categories/accessories-17/aerial-3023/porsche-macan-95b-gps-navigation-antenna-27614)
+2. Fakra cable to connect antenna to PCM unit
+   * Cable - Part number: 99161202250 - 60$
+   * [e.g. buy here](https://www.porscheatlantaperimeterparts.com/products/Porsche/CONNECTING-LINE-A-Connector-wire-GPS-Navigation-System-Antenna-Cable--1-2012-16-GPS-Navigation-System-Antenna-Cable/10089660/99161202250.html)
 
+### "Cheap" antennas - 15$
+https://www.amazon.com/dp/B0107LPEWK<br />
+https://www.amazon.com/dp/B006AKVX2S<br />
+
+ℹ️ Some of these antennas are shown in GEM as OPEN, but still work normally.<br />
+
+### Original VW antenna - 90$
+https://parts.vw.com/p/volkswagen__/GPS-Antenna-Assembly/73283683/000051502G.html<br />
+![image](https://user-images.githubusercontent.com/98130152/178349282-88ace2cb-cfea-4770-9ab1-02c0faa0354c.png)
+![image](https://user-images.githubusercontent.com/98130152/178349306-4cd05a53-ce45-4397-a8cd-96aa3a0909b0.png)
 
 # Track Precision App
-[![image](http://img.youtube.com/vi/w3avv2_bbM8/0.jpg)](https://www.youtube.com/watch?v=w3avv2_bbM8)
+[![image](http://img.youtube.com/vi/w3avv2_bbM8/0.jpg)](https://www.youtube.com/watch?v=w3avv2_bbM8)[![image](http://img.youtube.com/vi/B5HERxITtMY/0.jpg)](https://www.youtube.com/watch?v=B5HERxITtMY)
 
-[![image](http://img.youtube.com/vi/B5HERxITtMY/0.jpg)](https://www.youtube.com/watch?v=B5HERxITtMY)
-
+![image](https://user-images.githubusercontent.com/98130152/178163930-4bae2ff0-357f-4928-98ab-f2b33e3e83b7.png)
 
 # Retrofit Navigation display in Cluster
 
-Follow this Link for details:
-
-<https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html>
-
+Follow this Link for details: <https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html><br />
 
 ## Fakra/LVDS cable to connect cluster
 
+### On Cluster
+![image](https://user-images.githubusercontent.com/98130152/178362341-effda7ef-06f5-4004-b54e-ddfbf7c0c871.png)<br />
 
-On Cluster
+### On 5F
+![image](https://user-images.githubusercontent.com/98130152/178362365-765a6d22-5231-417f-9ab0-fd7e8f1892e0.png)<br />
 
-On 5F
+## OEM cable
+
+You need to buy the LVDS cable part number 9P3-979-001<br />
+![image](https://user-images.githubusercontent.com/98130152/178362311-1ce1e720-6525-4982-936d-ee0d06fae061.png)
+![image](https://user-images.githubusercontent.com/98130152/178362268-ea7fd282-0971-42a3-8904-ac30606c46f0.png)
 
 
-### OEM cable
-
-You need to buy the LVDS cable part number 9P3-979-001
-
-
-### Custom cable
+## Custom cable
 
 * Male type Z 90° angle
 * Male type Z straight
 * 1m length
 
+<https://de.aliexpress.com/item/1005003094375962.html><br />
+![image](https://user-images.githubusercontent.com/98130152/178362418-bf597a71-d149-40bc-8255-e631b209e2d2.png)<br />
+Price: \~8 USD incl. shipping<br />
 
-<https://de.aliexpress.com/item/1005003094375962.html>
-
-
-Price: \~8 USD incl. shipping
-
-
-Fakra connector type Z will fit in any socket.
+Fakra connector type Z will fit in any socket.<br />
+![image](https://user-images.githubusercontent.com/98130152/178362457-6789a373-f1c5-4573-8aeb-94c12f3df798.png)<br />
 
