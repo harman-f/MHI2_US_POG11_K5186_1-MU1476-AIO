@@ -41,6 +41,7 @@ Usable for all MHI2 US POG11 based MIB2 units
 
 1. Format SD card with **FAT32** file system.<br />
 2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US)).
+   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one
 3. Extract the content of the AIO package to the root directory of the FAT32 formatted SD card.<br />
 4. Power PCM 4 system up by pressing right knob<br />
    * Connect external charger to car<br />
@@ -53,21 +54,21 @@ Usable for all MHI2 US POG11 based MIB2 units
 7. Wait for the update to be installed - **be patient**.<br />
    * System will reboot a few times during the firmware update procedure. The screen can stay off or stuck on the Porsche logo for several seconds.<br />
    * Depending on the start firmware version the update will take between 10 - 40 minutes (this is why an external charger is required.<br />
-8. The installation will finish with a 'Summary of devices' screen of all installed packages and their installation status.
-   * Updates packages have to show Y(es)
-   * Packages will be different based on original FW version
-   * Exit this screen by pressing 'Continue' on screen
-   * ![image](https://user-images.githubusercontent.com/98130152/178356101-c8008fb4-85e1-4750-b1c1-91a7fdfe2e2f.png)
-9.  Last screen will be 'Start backup documentation'
-   * Exit this screem by pressing 'Cancel backup documentation' on screen
-   * ![image](https://user-images.githubusercontent.com/98130152/178356543-8b00f7b8-f5cd-4203-9b03-5eb8331a6b50.png)
-   * This is as it should be
-   * Unit will reboot one more time
-10. Unit boots up into normal user interface
-11. Enter GEM and run [SVM fix in M.I.B](https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO/edit/main/README.md#svm-fix)
-   * This will run for a few minutes and the unit will reboot one last time
-12. AIO FW update is completly done
-   * Have fun and explore the new functions!
+8. The installation will finish with a 'Summary of devices' screen of all installed packages and their installation status.<br />
+   * Updates packages have to show Y(es)<br />
+   * Packages will be different based on original FW version<br />
+   * Exit this screen by pressing 'Continue' on screen<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178356101-c8008fb4-85e1-4750-b1c1-91a7fdfe2e2f.png)<br />
+9. Last screen will be 'Start backup documentation'<br />
+   * Exit this screem by pressing 'Cancel backup documentation' on screen<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178356543-8b00f7b8-f5cd-4203-9b03-5eb8331a6b50.png)<br />
+   * This is as it should be<br />
+   * Unit will reboot one more time<br />
+10. Unit boots up into normal user interface<br />
+11. Enter GEM and run [SVM fix in M.I.B](https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO/edit/main/README.md#svm-fix)<br />
+   * This will run for a few minutes and the unit will reboot one last time<br />
+12. AIO FW update is completly done<br />
+   * Have fun and explore the new functions!<br />
 
 ### Installation on 911
 [![image](http://img.youtube.com/vi/QPRqR47_9qo/0.jpg)](https://www.youtube.com/watch?v=QPRqR47_9qo)
@@ -95,21 +96,15 @@ If you wish to update Bose you can use different `metainfo2.txt`, which is inclu
 
 Use built-in M.I.B AIO version to run SVM fix.<br />
 Enter GEM (CAR+TUNER buttons on home screen) and select function.<br />
-![image](https://user-images.githubusercontent.com/98130152/178356676-128374db-d50b-4f4f-981b-377d0ef83e5d.png)
+![image](https://user-images.githubusercontent.com/98130152/178356676-128374db-d50b-4f4f-981b-377d0ef83e5d.png)<br />
 
 # Map updates to the latest US maps:<br />
 
-
-:::info
-Use [download manager](/doc/mibsolutionone-fix-download-speed-sxBSYsX5Qq) to speed up downloading from mibsolution.one
-
-:::
-
-Get latest maps:
-
-<https://mibsolution.one/#/1/15/MHI2(Q)>
-
-Copy files to the root of a FAT32 SD card and install via Software Update in the PCM.
+1. **[Download latest maps here](https://mibsolution.one/#/1/15/MHI2(Q))**<br />
+   * ![image](https://user-images.githubusercontent.com/98130152/178357825-0470613c-2826-42f6-909b-af264189f39e.png)<br />
+   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one<br />
+2. Copy files to the root of a FAT32 32GB SD card<br />
+3. Install via Software Update on your unit<br />
 
 # Retrofit GPS Antenna 
 
@@ -119,7 +114,15 @@ Use M.I.B to check if your car already has a GPS antenan built in.
 If NO antenna is installed you have several options to retrofit one.
 You can place the antenna directly behind your PCM screen. 
 
-## Hardware
+## GPS Hardware
+
+### Original Porsche antenna
+1. Antenna - Part number: 7PP035504A - 30$
+* ![image](https://user-images.githubusercontent.com/98130152/178358449-a20a2bb1-b9c8-45c7-8369-82937ad7138d.png)
+* [e.g. buy here](https://partecha.com/autoparts-categories/accessories-17/aerial-3023/porsche-macan-95b-gps-navigation-antenna-27614)
+2. Fakra cable to connect antenna to PCM unit
+* Cable - Part number: 99161202250 - 60$
+* [e.g. buy here](https://www.porscheatlantaperimeterparts.com/products/Porsche/CONNECTING-LINE-A-Connector-wire-GPS-Navigation-System-Antenna-Cable--1-2012-16-GPS-Navigation-System-Antenna-Cable/10089660/99161202250.html)
 
 ### "Cheap" antennas - 15$
 https://www.amazon.com/dp/B0107LPEWK
@@ -132,10 +135,6 @@ https://parts.vw.com/p/volkswagen__/GPS-Antenna-Assembly/73283683/000051502G.htm
 ![image](https://user-images.githubusercontent.com/98130152/178349282-88ace2cb-cfea-4770-9ab1-02c0faa0354c.png)
 ![image](https://user-images.githubusercontent.com/98130152/178349306-4cd05a53-ce45-4397-a8cd-96aa3a0909b0.png)
 
-### Original Porsche antenna
-* Antenna - Part number: 7PP035504A - 60$
-* 
-
 # Track Precision App
 [![image](http://img.youtube.com/vi/w3avv2_bbM8/0.jpg)](https://www.youtube.com/watch?v=w3avv2_bbM8)
 
@@ -145,25 +144,25 @@ https://parts.vw.com/p/volkswagen__/GPS-Antenna-Assembly/73283683/000051502G.htm
 
 # Retrofit Navigation display in Cluster
 
-Follow this Link for details:
-
-<https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html>
-
+Follow this Link for details: <https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html>
 
 ## Fakra/LVDS cable to connect cluster
 
+### On Cluster
+![attachments](https://user-images.githubusercontent.com/98130152/178358958-c64be4cb-0e8f-44dd-9989-f4214af8a541.png)
 
-On Cluster
+### On 5F
+![attachments-1](https://user-images.githubusercontent.com/98130152/178358975-e6cfe49a-96b7-4cd7-a9f1-6a1e8436478f.png)
 
-On 5F
 
-
-### OEM cable
+## OEM cable
 
 You need to buy the LVDS cable part number 9P3-979-001
+![attachments](https://user-images.githubusercontent.com/98130152/178359065-e584611f-530c-4bc4-b51f-94237542d5fc.png)
+![attachments-1](https://user-images.githubusercontent.com/98130152/178359086-cf85a114-8be4-4f7c-90af-a63af116c988.png)
 
 
-### Custom cable
+## Custom cable
 
 * Male type Z 90° angle
 * Male type Z straight
@@ -171,8 +170,7 @@ You need to buy the LVDS cable part number 9P3-979-001
 
 
 <https://de.aliexpress.com/item/1005003094375962.html>
-
-
+![attachments](https://user-images.githubusercontent.com/98130152/178359357-6c2cd986-bc65-4a1d-93c5-4cd9ccf84aa6.png)
 Price: \~8 USD incl. shipping
 
 
