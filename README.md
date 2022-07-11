@@ -112,11 +112,11 @@ Enter GEM (CAR+TUNER buttons on home screen) and select function.<br />
 
 # Retrofit GPS Antenna 
 
-Use M.I.B to check if your car already has a GPS antenan built in.
-![image](https://user-images.githubusercontent.com/98130152/178350343-4a692a0c-06b4-4141-9705-950873dc6d68.png)
+Use M.I.B to check if your car already has a GPS antenan built in.<br />
+![image](https://user-images.githubusercontent.com/98130152/178350343-4a692a0c-06b4-4141-9705-950873dc6d68.png)<br />
 
-If NO antenna is installed you have several options to retrofit one.
-You can place the antenna directly behind your PCM screen. 
+If NO antenna is installed you have several options to retrofit one.<br />
+You can place the antenna directly behind your PCM screen. <br />
 
 ## GPS Hardware
 
@@ -129,41 +129,38 @@ You can place the antenna directly behind your PCM screen.
    * [e.g. buy here](https://www.porscheatlantaperimeterparts.com/products/Porsche/CONNECTING-LINE-A-Connector-wire-GPS-Navigation-System-Antenna-Cable--1-2012-16-GPS-Navigation-System-Antenna-Cable/10089660/99161202250.html)
 
 ### "Cheap" antennas - 15$
-https://www.amazon.com/dp/B0107LPEWK
-https://www.amazon.com/dp/B006AKVX2S
+https://www.amazon.com/dp/B0107LPEWK<br />
+https://www.amazon.com/dp/B006AKVX2S<br />
 
-ℹ️ Some of these antennas are shown in GEM as OPEN, but still work normally.
+ℹ️ Some of these antennas are shown in GEM as OPEN, but still work normally.<br />
 
 ### Original VW antenna - 90$
-https://parts.vw.com/p/volkswagen__/GPS-Antenna-Assembly/73283683/000051502G.html
+https://parts.vw.com/p/volkswagen__/GPS-Antenna-Assembly/73283683/000051502G.html<br />
 ![image](https://user-images.githubusercontent.com/98130152/178349282-88ace2cb-cfea-4770-9ab1-02c0faa0354c.png)
 ![image](https://user-images.githubusercontent.com/98130152/178349306-4cd05a53-ce45-4397-a8cd-96aa3a0909b0.png)
 
 # Track Precision App
-[![image](http://img.youtube.com/vi/w3avv2_bbM8/0.jpg)](https://www.youtube.com/watch?v=w3avv2_bbM8)
-
-[![image](http://img.youtube.com/vi/B5HERxITtMY/0.jpg)](https://www.youtube.com/watch?v=B5HERxITtMY)
+[![image](http://img.youtube.com/vi/w3avv2_bbM8/0.jpg)](https://www.youtube.com/watch?v=w3avv2_bbM8)[![image](http://img.youtube.com/vi/B5HERxITtMY/0.jpg)](https://www.youtube.com/watch?v=B5HERxITtMY)
 
 ![image](https://user-images.githubusercontent.com/98130152/178163930-4bae2ff0-357f-4928-98ab-f2b33e3e83b7.png)
 
 # Retrofit Navigation display in Cluster
 
-Follow this Link for details: <https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html>
+Follow this Link for details: <https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs-spyder-25th-anniversary/1307811-oem-navigation-retrofit-diy.html><br />
 
 ## Fakra/LVDS cable to connect cluster
 
 ### On Cluster
-![attachments](https://user-images.githubusercontent.com/98130152/178358958-c64be4cb-0e8f-44dd-9989-f4214af8a541.png)
+![image](https://user-images.githubusercontent.com/98130152/178362341-effda7ef-06f5-4004-b54e-ddfbf7c0c871.png)<br />
 
 ### On 5F
-![attachments-1](https://user-images.githubusercontent.com/98130152/178358975-e6cfe49a-96b7-4cd7-a9f1-6a1e8436478f.png)
-
+![image](https://user-images.githubusercontent.com/98130152/178362365-765a6d22-5231-417f-9ab0-fd7e8f1892e0.png)<br />
 
 ## OEM cable
 
-You need to buy the LVDS cable part number 9P3-979-001
-![attachments](https://user-images.githubusercontent.com/98130152/178359065-e584611f-530c-4bc4-b51f-94237542d5fc.png)
-![attachments-1](https://user-images.githubusercontent.com/98130152/178359086-cf85a114-8be4-4f7c-90af-a63af116c988.png)
+You need to buy the LVDS cable part number 9P3-979-001<br />
+![image](https://user-images.githubusercontent.com/98130152/178362311-1ce1e720-6525-4982-936d-ee0d06fae061.png)
+![image](https://user-images.githubusercontent.com/98130152/178362268-ea7fd282-0971-42a3-8904-ac30606c46f0.png)
 
 
 ## Custom cable
@@ -172,11 +169,10 @@ You need to buy the LVDS cable part number 9P3-979-001
 * Male type Z straight
 * 1m length
 
+<https://de.aliexpress.com/item/1005003094375962.html><br />
+![image](https://user-images.githubusercontent.com/98130152/178362418-bf597a71-d149-40bc-8255-e631b209e2d2.png)<br />
+Price: \~8 USD incl. shipping<br />
 
-<https://de.aliexpress.com/item/1005003094375962.html>
-![attachments](https://user-images.githubusercontent.com/98130152/178359357-6c2cd986-bc65-4a1d-93c5-4cd9ccf84aa6.png)
-Price: \~8 USD incl. shipping
-
-
-Fakra connector type Z will fit in any socket.
+Fakra connector type Z will fit in any socket.<br />
+![image](https://user-images.githubusercontent.com/98130152/178362457-6789a373-f1c5-4573-8aeb-94c12f3df798.png)<br />
 
