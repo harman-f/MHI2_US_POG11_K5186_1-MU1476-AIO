@@ -39,6 +39,10 @@ Usable for all MHI2 US POG11 based MIB2 units
 
 ## How to install
 
+ℹ️ Check Youtube videos linked below for a video overview of the installation process.<br />
+Videos might be out of date in parts, as the AIO solution is developed further.<br />
+Always read the text below carfully!<br />
+
 1. Format SD card with **FAT32** file system.<br />
 2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US)).
    * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one
