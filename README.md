@@ -118,11 +118,11 @@ You can place the antenna directly behind your PCM screen.
 
 ### Original Porsche antenna
 1. Antenna - Part number: 7PP035504A - 30$
-* ![image](https://user-images.githubusercontent.com/98130152/178358449-a20a2bb1-b9c8-45c7-8369-82937ad7138d.png)
-* [e.g. buy here](https://partecha.com/autoparts-categories/accessories-17/aerial-3023/porsche-macan-95b-gps-navigation-antenna-27614)
+   * ![image](https://user-images.githubusercontent.com/98130152/178358449-a20a2bb1-b9c8-45c7-8369-82937ad7138d.png)
+   * [e.g. buy here](https://partecha.com/autoparts-categories/accessories-17/aerial-3023/porsche-macan-95b-gps-navigation-antenna-27614)
 2. Fakra cable to connect antenna to PCM unit
-* Cable - Part number: 99161202250 - 60$
-* [e.g. buy here](https://www.porscheatlantaperimeterparts.com/products/Porsche/CONNECTING-LINE-A-Connector-wire-GPS-Navigation-System-Antenna-Cable--1-2012-16-GPS-Navigation-System-Antenna-Cable/10089660/99161202250.html)
+   * Cable - Part number: 99161202250 - 60$
+   * [e.g. buy here](https://www.porscheatlantaperimeterparts.com/products/Porsche/CONNECTING-LINE-A-Connector-wire-GPS-Navigation-System-Antenna-Cable--1-2012-16-GPS-Navigation-System-Antenna-Cable/10089660/99161202250.html)
 
 ### "Cheap" antennas - 15$
 https://www.amazon.com/dp/B0107LPEWK
