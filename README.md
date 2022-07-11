@@ -3,8 +3,8 @@
 Custom **A**ll **I**n **O**ne FW update based on latest Porsche firmware available - MHI2_US_POG11_K5186 MU1476.<br />
 Usable for all MHI2 US POG11 based MIB2 units
 
-ℹ️ Custom all-in-one FW update based on [metainfo2 exploit](/doc/metainfo2txt-exploit-VcFdFs4rds).<br />
-:warning: Read full artivle before using this update.<br />
+ℹ️ Custom all-in-one FW update based on metainfo2 exploit.<br />
+:warning: Read full article before using this update.<br />
 <br />
 **Last update 10.07.2022**<br />
 
@@ -161,7 +161,6 @@ Follow this Link for details: <https://rennlist.com/forums/718-gts-4-0-gt4-gt4rs
 You need to buy the LVDS cable part number 9P3-979-001<br />
 ![image](https://user-images.githubusercontent.com/98130152/178362311-1ce1e720-6525-4982-936d-ee0d06fae061.png)
 ![image](https://user-images.githubusercontent.com/98130152/178362268-ea7fd282-0971-42a3-8904-ac30606c46f0.png)
-
 
 ## Custom cable
 
