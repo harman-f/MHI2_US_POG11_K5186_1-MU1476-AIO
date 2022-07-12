@@ -13,13 +13,23 @@ export SWDLAUTORUN=1 # allows Swdlautorun.txt in root of SD during SWDL process
 
 echo "Running basic backup --------------------"
 ${2}/apps/backup -b
+
 echo "Running AIO generic script --------------"
 ${2}/apps/aio_generic -all
+
+echo "Running WLAN script --------------"
+${2}/apps/wlan -a 1 -noboot
+
+echo "Running Navigation activation script --------------"
+${2}/apps/navon -a 2 -noboot
+
 #echo "Runnung AIO special script -------------"
 #${2}/apps/aio_special -all
+
 echo "Running addfec --------------"
 ${2}/apps/addfec -a
 ${2}/apps/addfec -l
+
 echo "Running POG11 button patch script --------------"
 ${2}/apps/addimage -pog11on -noboot
 

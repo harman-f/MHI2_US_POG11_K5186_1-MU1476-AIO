@@ -20,12 +20,6 @@ if [ -f $TMP/backup.mib ] || [ -f $TMP/reboot.mib ] || [ -f $TMP/flash.mib ]; th
 	return 2> /dev/null
 fi
 
-#-----------------------FW specific customization-----------------------
-REGION=2 # set navigation region fitting to FW region.
-#NAR=2
-
-#-----------------------------------------------------------------------
-
 case $1 in
 
 -all) {
@@ -62,22 +56,6 @@ on -f mmx $PC b:0:3221356628:8.5 1 2>> $LOG
 on -f mmx $PC i:0:1343769792 3 2>> $LOG
 on -f mmx $PC b:0:3221356557:0 1 2>> $LOG
 echo "-- CarPlay, AndroidAuto, Mirrorlink and Development Mode activated" | $TEE -a $LOG
-
-#WLAN ON
-on -f mmx $PC i:0:0x50186008 1 2>> $LOG
-on -f mmx $PC i:28442848:514 1 2>> $LOG
-on -f mmx $PC b:0:3221356628:8.2 1 2>> $LOG
-echo "-- WLAN activated" | $TEE -a $LOG
-
-#byte_3_Country_Navigation
-on -f mmx $PC i:0:0x50180CFF 2 $REGION 2>> $LOG
-#SDS Region Flag
-on -f mmx $PC b:0:0xC0020054:9 $REGION 2>> $LOG
-#byte_24_Navigation_System
-on -f mmx $PC i:0:0x50186004 1 2>> $LOG
-#enable Navigation in variant_2
-on -f mmx $PC i:0x286f058c:6 1 2>> $LOG
-echo "-- Navigation activated" | $TEE -a $LOG
 
 sleep 2
 on -f mmx $PC b:0:1 0 2>> $LOG
