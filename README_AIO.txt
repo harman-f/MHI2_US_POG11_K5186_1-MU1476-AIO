@@ -6,7 +6,7 @@ Just plug preparedSD card into unit.
 PLEASE NOTE: Start of automatic FW update can take up to 1-2 minutes after plugging SD card in.
 
 Manual:
-https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO
+https://github.com/harman-f/MHI2_US_POG11_K5186_1-MU1476-AIO#readme
 
 All-In-One features:
 - Automatic starting FW update after plugging in SD
