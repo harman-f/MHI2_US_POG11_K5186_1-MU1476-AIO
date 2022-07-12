@@ -22,6 +22,5 @@ All-In-One features:
 - M.I.B. - More Incredible Bash will be enabled to run from SD
 - M.I.B. AIO version - with reduced functions - will be available directly from FW SD card
   - SVM fix, Backup functions, some basic cosing checks
-- BOSE Sound System update disabled
 
-Version: 20220703
+Version: 20220712
