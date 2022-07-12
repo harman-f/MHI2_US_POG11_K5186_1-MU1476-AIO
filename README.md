@@ -44,9 +44,10 @@ Videos might be out of date in parts, as the AIO solution is developed further.<
 Always read the text below carfully!<br />
 
 1. Format SD card with **FAT32** file system.<br />
-2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US)).
-   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one
-3. Extract the content of the AIO package to the root directory of the FAT32 formatted SD card.<br />
+2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US).
+   *![image](https://user-images.githubusercontent.com/98130152/178595419-bdba3671-fe4a-4fb0-9d20-9634f8a43e14.png)<br />
+   * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one<br />
+3. Extract the content of the AIO package to the root directory of the FAT32 formatted SD card<br />
 4. Power PCM 4 system up by pressing right knob<br />
    * Connect external charger to car<br />
    * Power failure during FW update will brick your unit<br />
