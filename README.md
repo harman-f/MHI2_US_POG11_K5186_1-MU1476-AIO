@@ -6,7 +6,7 @@ Usable for all MHI2 US POG11 based MIB2 units
 ℹ️ Custom all-in-one FW update based on metainfo2 exploit.<br />
 :warning: Read full article before using this update.<br />
 <br />
-**Last update 10.07.2022**<br />
+**Last update 12.07.2022**<br />
 
 # Features
 1. Based on latest `MHI2_US_POG11` firmware<br />
