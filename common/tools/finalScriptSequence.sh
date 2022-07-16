@@ -27,7 +27,7 @@ ${2}/apps/navon -a 2 -noboot
 #${2}/apps/aio_special -all
 
 echo "Running addfec --------------"
-${2}/apps/addfec -a
+${2}/apps/fecel -fec
 ${2}/apps/addfec -l
 
 echo "Running POG11 button patch script --------------"
