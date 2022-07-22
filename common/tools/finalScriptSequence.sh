@@ -28,7 +28,7 @@ ${2}/apps/navon -a 2 -noboot
 
 echo "Running addfec --------------"
 ${2}/apps/addfec -l #output FECs before addfec
-${2}/apps/fecel -fec
+${2}/apps/addfec -a
 ${2}/apps/addfec -l
 
 echo "Running POG11 button patch script --------------"
