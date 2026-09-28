@@ -1,12 +1,15 @@
 # MHI2_US_POG11_K5186_1 MU1476 AIO 
 
 Custom **A**ll **I**n **O**ne FW update based on latest Porsche firmware available - MHI2_US_POG11_K5186 MU1476.<br />
-Usable for all MHI2 US POG11 based MIB2 units
+Historically built for the explicitly listed MHI2 US POG11 trains below. Do **not** assume compatibility with later POG11 hardware/firmware only from the train prefix. Reports for newer P5250/P5251-era units show that the 2022 AIO must not be treated as universal.
 
 ℹ️ Custom all-in-one FW update based on metainfo2 exploit.<br />
 :warning: Read full article before using this update.<br />
 <br />
 **Last update 12.07.2022**<br />
+
+> [!WARNING]
+> This is a historical 2022 AIO package. Keep the explicit `SupportedTrains` list as the compatibility authority. Newer hardware generations require separate validation; do not downgrade or flash solely because the train starts with `MHI2_US_POG11_`.
 
 # Features
 1. Based on latest `MHI2_US_POG11` firmware<br />
@@ -44,7 +47,8 @@ Videos might be out of date in parts, as the AIO solution is developed further.<
 Always read the text below carfully!<br />
 
 1. Format SD card with **FAT32** file system.<br />
-2. [Download MHI2_US_POG11_K5186_1 MU1476 AIO](https://mibsolution.one/#/1/9/MHI2%20-%20HARMAN/Firmware/Porsche/US).
+2. Download the **modified AIO package**, historically named `MHI2_US_POG11_K5186_1_MU1476_AIO_20220723` (or a later clearly marked AIO build), not the similarly named unmodified `MHI2_US_POG11_K5186_MU1476` firmware.
+   * The historical download host may no longer be available; verify the package identity and checksum before use.
    *![image](https://user-images.githubusercontent.com/98130152/178595419-bdba3671-fe4a-4fb0-9d20-9634f8a43e14.png)<br />
    * ℹ️ Use [download manager](https://mibwiki.one/share/99dda9a7-06e2-4673-a5df-2ea7e0eb18cb) to speed up downloading from mibsolution.one<br />
 3. Extract the content of the AIO package to the root directory of the FAT32 formatted SD card<br />
